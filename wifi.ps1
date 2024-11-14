@@ -20,9 +20,6 @@ if ($usbDrive) {
     $userInfo = whoami
     $output += "`nUser Info: $userInfo`n"
 
-    # Save the output to the USB drive
+    # Save output to USB without opening or displaying it
     $output | Out-File -FilePath $filePath -Encoding utf8
-    notepad $filePath
-} else {
-    Write-Host "Exiting."
 }
