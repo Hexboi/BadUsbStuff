@@ -5,16 +5,18 @@
 This folder contains a DigiSpark (ATTiny85) payload that automatically runs a PowerShell script to extract Wi-Fi profiles.
 
 
-There are 2 versions:
+### Versions
+
 - ExtractorToUSB.ps1 saves the output on another USB drive 
 - ExtractorToC2.ps1 saves the output on a remote C2 via HTTP POST 
 
 
-The payload simulates keyboard input to:
-- open PowerShell in a hidden window
-- execute a Base64-encoded command
-- extract Wi-Fi profiles along with passwords
-- save the extracted info
+### Behaviour
+
+- Opens PowerShell in a hidden window
+- Executes a Base64-encoded command
+- Extracts Wi-Fi profiles along with passwords
+- Saves the extracted info
 
 
 This tool can be useful for penetration testing or red team operations where retrieving network credentials is necessary.
