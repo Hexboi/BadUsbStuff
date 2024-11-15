@@ -2,7 +2,7 @@
 # Replace "USB_LABEL" with the actual label of your USB drive.
 # Once the USB drive is detected, the script uses test.txt as output file.
 
-$usbDrive = Get-WmiObject -Query 'SELECT * FROM Win32_PnPEntity WHERE DeviceID LIKE "USB\\VID_16D0&PID_0753%"'
+$usbDrive = Get-WmiObject -Query 'SELECT * FROM Win32_Volume WHERE DriveType = 2' | Where-Object { $_.Label -eq 'USB_LABEL' }
 
 if ($usbDrive) {
     $filePath = "$($usbDrive.DriveLetter)\test.txt"
