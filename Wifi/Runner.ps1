@@ -4,7 +4,7 @@
 # Powershell is run in hidden mode for OPSEC reasons 
 
 $command = @"
-$usbDrive = Get-WmiObject -Query 'SELECT * FROM Win32_PnPEntity WHERE DeviceID LIKE "USB\\VID_16D0&PID_0753%"'
+$usbDrive = Get-WmiObject -Query 'SELECT * FROM Win32_Volume WHERE DriveType = 2' | Where-Object { $_.Label -eq 'USB_LABEL' }
 
 if ($usbDrive) {
     $filePath = "$($usbDrive.DriveLetter)\test.txt"
